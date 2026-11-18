@@ -312,6 +312,13 @@ html,body{overflow-x:clip}
 @keyframes ttTicker{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 @media (max-width:600px){.tt-ticker{padding:16px 0}.tt-ticker__item{padding:0 18px}.tt-ticker__track{animation-duration:28s}}
 </style>
+<style id="tt-spacing">
+/* tt-spacing v1: sekcje stykają się bez kremowych przerw */
+.wp-block-post-content > .alignfull{margin-block-start:0!important;margin-block-end:0!important}
+.wp-site-blocks > footer,.wp-site-blocks > .wp-block-template-part:last-child{margin-block-start:0!important}
+main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{margin-block-end:0!important}
+.wp-block-post-content > .alignfull:not(.wp-block-cover):not(.tt-ticker){padding-top:clamp(56px,8vw,96px)!important;padding-bottom:clamp(56px,8vw,96px)!important}
+</style>
 </head>
 
 <body class="home wp-singular page-template page-template-page-no-title page page-id-11 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">

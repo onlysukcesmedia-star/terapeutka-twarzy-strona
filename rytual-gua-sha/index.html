@@ -295,6 +295,13 @@ html,body{overflow-x:clip}
 .tt-mm-social a{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#8A5A4A!important;text-decoration:none}
 
 </style>
+<style id="tt-spacing">
+/* tt-spacing v1: sekcje stykają się bez kremowych przerw */
+.wp-block-post-content > .alignfull{margin-block-start:0!important;margin-block-end:0!important}
+.wp-site-blocks > footer,.wp-site-blocks > .wp-block-template-part:last-child{margin-block-start:0!important}
+main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{margin-block-end:0!important}
+.wp-block-post-content > .alignfull:not(.wp-block-cover):not(.tt-ticker){padding-top:clamp(56px,8vw,96px)!important;padding-bottom:clamp(56px,8vw,96px)!important}
+</style>
 </head>
 
 <body class="wp-singular page-template-default page page-id-14 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
