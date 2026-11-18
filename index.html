@@ -358,6 +358,35 @@ main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{marg
 #zabiegi > .tt-px{max-width:none!important;margin:0!important}
 .wp-block-navigation__responsive-container:not(.is-menu-open) .tt-mm-brand,.wp-block-navigation__responsive-container:not(.is-menu-open) .tt-mm-foot{display:none!important}
 </style>
+<style id="tt-compare">
+/* tt-compare v1: suwak przed/po ze świecącą linią skanera */
+.tt-meta{background:#FBF7F4;padding:clamp(56px,8vw,96px) 20px!important;margin-block:0!important;max-width:none!important}
+.tt-meta__in{max-width:1100px;margin:0 auto;display:grid;gap:clamp(24px,4vw,64px);align-items:center;justify-items:center}
+@media (min-width:900px){.tt-meta__in{grid-template-columns:1fr auto}.tt-meta__txt{text-align:left!important}}
+.tt-meta__txt{text-align:center;max-width:460px}
+.tt-meta__eyebrow{margin:0 0 .6rem;color:#8A5A4A;font-weight:700;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase}
+.tt-meta__h{margin:0;font-family:var(--wp--preset--font-family--literata,Literata,serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.15;color:#2E2522}
+.tt-meta__lead{margin:1rem 0 0;color:#6B5E59;line-height:1.6}
+.tt-cmp{position:relative;width:min(440px,calc(100vw - 40px));aspect-ratio:476/805;max-height:80vh;border-radius:24px;overflow:hidden;box-shadow:0 22px 55px rgba(46,37,34,.22);user-select:none;-webkit-user-select:none;touch-action:pan-y;background:#2E2522;cursor:ew-resize}
+@supports (height:1svh){.tt-cmp{max-height:80svh}}
+.tt-cmp__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.tt-cmp__before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x)) 0 0);-webkit-clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.tt-cmp__tag{position:absolute;z-index:3;top:14px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.92);color:#8A5A4A;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:opacity .25s}
+.tt-cmp__tag--b{left:14px}.tt-cmp__tag--a{right:14px}
+.tt-cmp[data-x-low] .tt-cmp__tag--b{opacity:0}.tt-cmp[data-x-high] .tt-cmp__tag--a{opacity:0}
+/* świecąca wiązka */
+.tt-cmp__laser{position:absolute;z-index:2;top:0;bottom:0;left:var(--x);width:0;pointer-events:none}
+.tt-cmp__laser::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:linear-gradient(180deg,rgba(255,236,226,.2),#fff 18%,#ffe3d4 50%,#fff 82%,rgba(255,236,226,.2));box-shadow:0 0 6px 2px rgba(255,255,255,.95),0 0 18px 6px rgba(240,170,140,.85),0 0 46px 14px rgba(201,120,90,.45);animation:ttLaserPulse 1.8s ease-in-out infinite}
+.tt-cmp__laser::after{content:"";position:absolute;top:0;bottom:0;left:-40px;width:80px;background:radial-gradient(ellipse at center,rgba(255,200,175,.28),rgba(255,200,175,0) 70%);mix-blend-mode:screen}
+.tt-cmp__scan{position:absolute;left:-1.5px;width:3px;height:22%;top:-22%;background:linear-gradient(180deg,rgba(255,255,255,0),#fff,rgba(255,255,255,0));filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #f3b49a);animation:ttLaserScan 2.6s linear infinite}
+.tt-cmp__knob{position:absolute;top:50%;left:0;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#8A5A4A;background:rgba(255,255,255,.96);box-shadow:0 0 0 3px rgba(255,255,255,.35),0 0 16px 4px rgba(255,210,190,.9),0 0 34px 10px rgba(201,120,90,.5);animation:ttKnobGlow 1.8s ease-in-out infinite}
+.tt-cmp__range{position:absolute;z-index:4;inset:0;width:100%;height:100%;margin:0;opacity:0;pointer-events:none;-webkit-appearance:none;appearance:none;touch-action:pan-y}
+.tt-cmp__range:focus-visible ~ .tt-cmp__laser .tt-cmp__knob,.tt-cmp:focus-within .tt-cmp__knob{outline:2px solid #8A5A4A;outline-offset:3px}
+.tt-cmp.is-dragging .tt-cmp__laser::before{animation-duration:.6s}
+@keyframes ttLaserPulse{0%,100%{opacity:.85;filter:brightness(1)}50%{opacity:1;filter:brightness(1.35)}}
+@keyframes ttLaserScan{0%{top:-22%}100%{top:100%}}
+@keyframes ttKnobGlow{0%,100%{box-shadow:0 0 0 3px rgba(255,255,255,.35),0 0 14px 3px rgba(255,210,190,.8),0 0 30px 8px rgba(201,120,90,.4)}50%{box-shadow:0 0 0 5px rgba(255,255,255,.45),0 0 22px 6px rgba(255,220,200,1),0 0 46px 14px rgba(201,120,90,.6)}}
+</style>
 </head>
 
 <body class="home wp-singular page-template page-template-page-no-title page page-id-11 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -631,6 +660,25 @@ Od ponad dwóch lat jestem jej klientką, a moja twarz jest zadbana i zrelaksowa
 
 <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-35f06ea7 wp-block-buttons-is-layout-flex">
 <div class="wp-block-button"><a class="wp-block-button__link has-accent-3-color has-base-background-color has-text-color has-background wp-element-button" href="https://terapeutkatwarzymalgorzatakoza.pl/">Zapisz się na wizytę</a></div>
+</div>
+</div>
+
+
+
+<div id="metamorfoza" class="tt-meta alignfull">
+<div class="tt-meta__in">
+<div class="tt-meta__txt">
+<p class="tt-meta__eyebrow">Metamorfoza</p>
+<h2 class="tt-meta__h">Zobacz różnicę na własne oczy</h2>
+<p class="tt-meta__lead">Przesuń świecącą linię w lewo i w prawo – po lewej stan przed terapią, po prawej efekt po serii zabiegów. Bez filtrów, bez retuszu.</p>
+</div>
+<div class="tt-cmp" style="--x:50%">
+<img class="tt-cmp__img tt-cmp__img--after" src="./wp-content/uploads/2026/11/efekty/metamorfoza-po.jpg" alt="Twarz klientki po serii manualnych terapii twarzy" width="476" height="805" decoding="async">
+<div class="tt-cmp__before"><img class="tt-cmp__img" src="./wp-content/uploads/2026/11/efekty/metamorfoza-przed.jpg" alt="Twarz klientki przed manualną terapią twarzy" width="476" height="805" decoding="async"></div>
+<span class="tt-cmp__tag tt-cmp__tag--b">Przed</span><span class="tt-cmp__tag tt-cmp__tag--a">Po</span>
+<div class="tt-cmp__laser" aria-hidden="true"><span class="tt-cmp__scan"></span><span class="tt-cmp__knob"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<input class="tt-cmp__range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Porównanie przed i po – przesuń, aby odsłonić zdjęcie">
+</div>
 </div>
 </div>
 
@@ -965,5 +1013,63 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 	});
 })();
 </script>
-		</body>
+		<script id="tt-compare-js">
+(function () {
+	document.querySelectorAll('.tt-cmp').forEach(function (box) {
+		var range = box.querySelector('.tt-cmp__range');
+		var anim = null, touched = false;
+		function set(v) {
+			v = Math.max(0, Math.min(100, v));
+			box.style.setProperty('--x', v + '%');
+			if (v < 12) { box.setAttribute('data-x-low', ''); } else { box.removeAttribute('data-x-low'); }
+			if (v > 88) { box.setAttribute('data-x-high', ''); } else { box.removeAttribute('data-x-high'); }
+		}
+		function stop() { touched = true; if (anim) { cancelAnimationFrame(anim); anim = null; } }
+		range.addEventListener('input', function () { stop(); set(parseFloat(range.value)); });
+		/* przeciąganie palcem / myszą w dowolnym miejscu zdjęcia */
+		function fromEvent(e) {
+			var r = box.getBoundingClientRect();
+			var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+			var v = x / r.width * 100;
+			range.value = v; set(v);
+		}
+		var dragging = false, sx = 0, sy = 0, decided = false;
+		box.addEventListener('pointerdown', function (e) { stop(); dragging = true; decided = e.pointerType !== 'touch'; sx = e.clientX; sy = e.clientY; if (decided) { box.classList.add('is-dragging'); fromEvent(e); } });
+		window.addEventListener('pointermove', function (e) {
+			if (!dragging) { return; }
+			if (!decided) {
+				var dx = Math.abs(e.clientX - sx), dy = Math.abs(e.clientY - sy);
+				if (dx < 6 && dy < 6) { return; }
+				if (dy > dx) { dragging = false; return; }
+				decided = true; box.classList.add('is-dragging');
+			}
+			fromEvent(e);
+		});
+		window.addEventListener('pointerup', function () { dragging = false; box.classList.remove('is-dragging'); });
+		/* zachęcające przesunięcie skanera, gdy suwak pojawi się na ekranie */
+		function intro() {
+			if (touched) { return; }
+			var t0 = null, pts = [50, 82, 18, 50], dur = 2600;
+			function step(ts) {
+				if (touched) { return; }
+				if (!t0) { t0 = ts; }
+				var p = Math.min(1, (ts - t0) / dur), seg = p * (pts.length - 1), i = Math.min(pts.length - 2, Math.floor(seg)), f = seg - i;
+				f = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+				var v = pts[i] + (pts[i + 1] - pts[i]) * f;
+				range.value = v; set(v);
+				if (p < 1) { anim = requestAnimationFrame(step); } else { anim = null; }
+			}
+			anim = requestAnimationFrame(step);
+		}
+		if ('IntersectionObserver' in window) {
+			var io = new IntersectionObserver(function (en) {
+				en.forEach(function (e) { if (e.isIntersecting) { intro(); } });
+			}, { threshold: 0.6 });
+			io.observe(box);
+		}
+		set(50);
+	});
+})();
+</script>
+</body>
 </html>
