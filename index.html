@@ -286,6 +286,20 @@ html,body{overflow-x:clip}
 .tt-mm-social a{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#8A5A4A!important;text-decoration:none}
 @media (prefers-reduced-motion:reduce){.wp-block-navigation__responsive-container.is-menu-open,.wp-block-navigation__responsive-container.is-menu-open *{animation:none!important}}
 </style>
+<style id="tt-offer-fx">
+/* tt-offer-fx v1: paralaksa, animacje sterowane scrollem, wysuwanie z boku */
+.tt-js #zabiegi.tt-fx{position:relative;isolation:isolate;background-image:none!important}
+#zabiegi .tt-px{position:absolute;z-index:-1;left:0;right:0;top:-18%;bottom:-18%;background:center 55%/cover no-repeat;transform:translate3d(0,var(--tt-py,0px),0) scale(var(--tt-ps,1.04));will-change:transform;pointer-events:none}
+/* wysuwanie kafelków z boku */
+.tt-js #zabiegi .wp-block-columns>.wp-block-column{opacity:0;transform:translate3d(-110px,0,0) rotate(-2.5deg);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+.tt-js #zabiegi .wp-block-columns>.wp-block-column:nth-child(even){transform:translate3d(110px,0,0) rotate(2.5deg)}
+.tt-js #zabiegi .wp-block-columns>.wp-block-column.tt-in{opacity:1!important;transform:none!important}
+/* elementy sterowane scrollem */
+#zabiegi .tt-offer-head h2{transform:scale(var(--tt-hs,1));transform-origin:center bottom;letter-spacing:var(--tt-ls,0em)}
+#zabiegi .tt-offer-line{display:block;height:2px;width:min(220px,50%);margin:.9rem auto 1rem;background:linear-gradient(90deg,transparent,#8A5A4A,transparent);transform:scaleX(var(--tt-lp,0));transform-origin:center}
+#zabiegi .wp-block-column .has-x-large-font-size{display:inline-block;transform:rotate(var(--tt-rot,0deg)) scale(var(--tt-ss,1));transform-origin:50% 55%}
+@media (prefers-reduced-motion:reduce){#zabiegi .tt-px{transform:none}.tt-js #zabiegi .wp-block-columns>.wp-block-column{transform:none!important;opacity:1!important}#zabiegi .tt-offer-head h2,#zabiegi .wp-block-column .has-x-large-font-size{transform:none}#zabiegi .tt-offer-line{transform:none}}
+</style>
 </head>
 
 <body class="home wp-singular page-template page-template-page-no-title page page-id-11 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -795,6 +809,56 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 		var btn = dlg.querySelector('.wp-block-navigation__responsive-container-close');
 		if (btn) { setTimeout(function () { btn.click(); }, 10); }
 	});
+})();
+</script>
+<script id="tt-offer-fx-js">
+(function () {
+	var sec = document.getElementById('zabiegi');
+	if (!sec || sec.querySelector('.tt-px')) { return; }
+	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var bg = getComputedStyle(sec).backgroundImage;
+	var px = document.createElement('div');
+	px.className = 'tt-px';
+	px.setAttribute('aria-hidden', 'true');
+	if (bg && bg !== 'none') { px.style.backgroundImage = bg; }
+	sec.insertBefore(px, sec.firstChild);
+	sec.classList.add('tt-fx');
+	var h2 = sec.querySelector('.tt-offer-head h2');
+	if (h2 && !sec.querySelector('.tt-offer-line')) {
+		var line = document.createElement('span');
+		line.className = 'tt-offer-line';
+		line.setAttribute('aria-hidden', 'true');
+		h2.parentNode.insertBefore(line, h2.nextSibling);
+	}
+	if (reduce) { return; }
+	var stars = [].slice.call(sec.querySelectorAll('.wp-block-column .has-x-large-font-size'));
+	var ticking = false;
+	function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+	function update() {
+		ticking = false;
+		var r = sec.getBoundingClientRect();
+		var vh = window.innerHeight || document.documentElement.clientHeight;
+		if (r.bottom < -100 || r.top > vh + 100) { return; }
+		/* paralaksa: tło przesuwa się wolniej niż strona */
+		var mid = r.top + r.height / 2 - vh / 2;
+		sec.style.setProperty('--tt-py', (mid * -0.18).toFixed(1) + 'px');
+		/* postęp wejścia sekcji: 0 gdy wchodzi od dołu, 1 gdy nagłówek jest w 1/3 ekranu */
+		var p = clamp((vh - r.top) / (vh * 0.75));
+		sec.style.setProperty('--tt-ps', (1.12 - p * 0.08).toFixed(3));
+		sec.style.setProperty('--tt-hs', (0.9 + p * 0.1).toFixed(3));
+		sec.style.setProperty('--tt-ls', ((1 - p) * 0.12).toFixed(3) + 'em');
+		sec.style.setProperty('--tt-lp', p.toFixed(3));
+		/* gwiazdki obracają się wraz z przewijaniem */
+		var total = clamp((vh - r.top) / (r.height + vh));
+		stars.forEach(function (s, i) {
+			s.style.setProperty('--tt-rot', (total * 360 * (i % 2 ? -1 : 1)).toFixed(1) + 'deg');
+			s.style.setProperty('--tt-ss', (0.85 + Math.sin(total * Math.PI) * 0.3).toFixed(3));
+		});
+	}
+	function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+	window.addEventListener('scroll', onScroll, { passive: true });
+	window.addEventListener('resize', onScroll);
+	update();
 })();
 </script>
 </body>
