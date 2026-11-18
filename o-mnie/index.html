@@ -302,6 +302,11 @@ html,body{overflow-x:clip}
 main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{margin-block-end:0!important}
 .wp-block-post-content > .alignfull:not(.wp-block-cover):not(.tt-ticker){padding-top:clamp(56px,8vw,96px)!important;padding-bottom:clamp(56px,8vw,96px)!important}
 </style>
+<style id="tt-reviews-fit">
+/* tt-reviews-fit v1: wysokość karuzeli dopasowana do widocznych opinii */
+.tt-reviews__track--fbstyle{align-items:flex-start;box-sizing:content-box;transition:height .35s ease;overflow-y:hidden}
+.tt-reviews + .wp-block-buttons,.tt-reviews ~ .wp-block-buttons{margin-top:clamp(18px,3vw,28px)!important}
+</style>
 </head>
 
 <body class="wp-singular page-template-default page page-id-16 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -570,6 +575,29 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 		if (!a) { return; }
 		var btn = dlg.querySelector('.wp-block-navigation__responsive-container-close');
 		if (btn) { setTimeout(function () { btn.click(); }, 10); }
+	});
+})();
+</script>
+<script id="tt-reviews-fit-js">
+(function () {
+	document.querySelectorAll('.tt-reviews__track--fbstyle').forEach(function (track) {
+		var cards = [].slice.call(track.children);
+		if (!cards.length) { return; }
+		var t = null;
+		function fit() {
+			var tr = track.getBoundingClientRect();
+			var h = 0;
+			cards.forEach(function (c) {
+				var r = c.getBoundingClientRect();
+				var visible = Math.min(r.right, tr.right) - Math.max(r.left, tr.left);
+				if (visible > r.width * 0.35) { h = Math.max(h, c.offsetHeight); }
+			});
+			if (h) { track.style.height = h + 'px'; }
+		}
+		track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(fit, 60); }, { passive: true });
+		window.addEventListener('resize', fit);
+		window.addEventListener('load', fit);
+		fit();
 	});
 })();
 </script>
