@@ -319,37 +319,23 @@ html,body{overflow-x:clip}
 main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{margin-block-end:0!important}
 .wp-block-post-content > .alignfull:not(.wp-block-cover):not(.tt-ticker){padding-top:clamp(56px,8vw,96px)!important;padding-bottom:clamp(56px,8vw,96px)!important}
 </style>
-<style id="tt-stories">
-/* tt-stories v1: przed i po jako Instagram Stories sterowane scrollem */
-#efekty.tt-st-on{padding-top:0!important;padding-bottom:0!important;overflow:visible!important}
-#efekty.tt-st-on > h2,#efekty.tt-st-on > p,#efekty.tt-st-on .tt-ba,#efekty.tt-st-on .tt-ba__hint{display:none!important}
-.tt-st{position:relative;width:100%;max-width:none!important;margin:0!important}
-.tt-st__sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px 16px;box-sizing:border-box;overflow:hidden}
-.tt-st__head{text-align:center;max-width:620px}
-.tt-st__head h2{margin:0;font-size:clamp(1.7rem,3.4vw,2.6rem)}
-.tt-st__head p{margin:.35rem 0 0;font-size:.95rem;color:var(--wp--preset--color--accent-4,#6B5E59)}
-.tt-st__frame{position:relative;height:min(68svh,620px);height:min(68vh,620px);aspect-ratio:9/16;max-width:calc(100vw - 32px);border-radius:22px;overflow:hidden;background:#2E2522;box-shadow:0 18px 50px rgba(46,37,34,.28);cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
-@supports (height:1svh){.tt-st__frame{height:min(68svh,620px)}}
-.tt-st__bars{position:absolute;z-index:3;top:10px;left:10px;right:10px;display:flex;gap:4px}
-.tt-st__bar{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
-.tt-st__bar i{display:block;height:100%;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .15s linear}
-.tt-st__user{position:absolute;z-index:3;top:22px;left:12px;right:12px;display:flex;align-items:center;gap:8px;color:#fff;font-size:.82rem;text-shadow:0 1px 3px rgba(0,0,0,.45)}
-.tt-st__user img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff}
-.tt-st__user b{font-weight:700}
-.tt-st__user span{opacity:.8}
-.tt-st__slide{position:absolute;inset:0;opacity:0;transform:scale(1.06);transition:opacity .45s ease,transform .6s ease}
-.tt-st__slide.is-on{opacity:1;transform:none;z-index:1}
-.tt-st__bg{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(18px) brightness(.75);transform:scale(1.1)}
-.tt-st__pic{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);aspect-ratio:1/1}
-.tt-st__pic img{width:100%;height:100%;object-fit:cover;display:block}
-.tt-st__pic::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,.9)}
-.tt-st__tag{position:absolute;left:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:#8A5A4A;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.tt-st__tag--b{top:10px}.tt-st__tag--a{top:calc(50% + 10px)}
-.tt-st__cta{position:absolute;z-index:3;left:12px;right:12px;bottom:14px;text-align:center;color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 3px rgba(0,0,0,.5)}
-.tt-st__hint{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:#8A5A4A;display:flex;align-items:center;gap:8px}
-.tt-st__hint::after{content:"↓";display:inline-block;animation:ttStHint 1.4s ease-in-out infinite}
-@keyframes ttStHint{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-@media (min-width:900px){.tt-st__sticky{flex-direction:row;gap:64px}.tt-st__head{text-align:left;max-width:380px}.tt-st__head h2{font-size:clamp(2.2rem,3.4vw,3rem)}.tt-st__side{display:flex;flex-direction:column;gap:18px;align-items:flex-start}}
+<style id="tt-stack">
+/* tt-stack v1: Stacked Cards Parallax dla efektów przed i po */
+#efekty.tt-stack-on{overflow:visible!important}
+#efekty.tt-stack-on .tt-ba,#efekty.tt-stack-on .tt-ba__hint{display:none!important}
+.tt-stack{position:relative;width:min(540px,calc(100vw - 40px),calc(100vh - 290px));margin:clamp(28px,5vw,48px) auto 0!important;padding-bottom:6vh}
+.tt-stack__card{position:sticky;top:calc(var(--tt-top,12vh) + var(--i) * 14px);margin:0 0 9vh;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 18px 45px rgba(46,37,34,.18),0 2px 6px rgba(46,37,34,.06);transform-origin:center top;transform:scale(var(--s,1));filter:brightness(var(--b,1));will-change:transform,filter}
+.tt-stack__card:last-child{margin-bottom:0}
+.tt-stack__pic{position:relative;aspect-ratio:1/1}
+.tt-stack__pic img{width:100%;height:100%;object-fit:cover;display:block;transform:translateY(var(--py,0px)) scale(1.08);will-change:transform}
+.tt-stack__pic::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(255,255,255,.95)}
+.tt-stack__tag{position:absolute;z-index:1;left:14px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.94);color:#8A5A4A;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.tt-stack__tag--b{top:14px}.tt-stack__tag--a{top:calc(50% + 14px)}
+.tt-stack__cap{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:16px 20px}
+.tt-stack__num{font-family:var(--wp--preset--font-family--literata,Literata,serif);font-size:1.6rem;color:#8A5A4A;line-height:1}
+.tt-stack__num small{font-size:.9rem;color:#C9A38F}
+.tt-stack__txt{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#6B5E59}
+@media (max-width:600px){.tt-stack{--tt-top:9vh}.tt-stack__cap{padding:12px 16px}.tt-stack__num{font-size:1.35rem}.tt-stack__txt{font-size:.72rem}}
 </style>
 </head>
 
@@ -894,77 +880,60 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 	update();
 })();
 </script>
-<script id="tt-stories-js">
+<script id="tt-stack-js">
 (function () {
 	var sec = document.getElementById('efekty');
-	if (!sec || sec.querySelector('.tt-st')) { return; }
+	if (!sec || sec.querySelector('.tt-stack')) { return; }
 	var figs = [].slice.call(sec.querySelectorAll('.tt-ba__track > .tt-ba__item'));
 	if (!figs.length) { return; }
-	var srcs = figs.map(function (f) { var i = f.querySelector('img'); return { src: i.getAttribute('src'), alt: i.getAttribute('alt') || '' }; });
-	var n = srcs.length;
-	var h2 = sec.querySelector(':scope > h2');
-	var intro = sec.querySelector(':scope > p');
-	var av = document.querySelector('.tt-avatar');
-	var avSrc = av ? (av.getAttribute('src') || '') : '';
-
-	var wrap = document.createElement('div');
-	wrap.className = 'tt-st';
-	wrap.style.height = 'calc(' + n + ' * 55vh + 100vh)';
-	var bars = '', slides = '';
-	srcs.forEach(function (s, i) {
-		bars += '<span class="tt-st__bar"><i></i></span>';
-		slides += '<div class="tt-st__slide' + (i ? '' : ' is-on') + '"><div class="tt-st__bg" style="background-image:url(\'' + s.src + '\')"></div>' +
-			'<div class="tt-st__pic"><img src="' + s.src + '" alt="' + s.alt.replace(/"/g, '&quot;') + '" decoding="async"><span class="tt-st__tag tt-st__tag--b">Przed</span><span class="tt-st__tag tt-st__tag--a">Po</span></div></div>';
+	var n = figs.length;
+	var stack = document.createElement('div');
+	stack.className = 'tt-stack';
+	var html = '';
+	figs.forEach(function (f, i) {
+		var img = f.querySelector('img');
+		var num = (i + 1 < 10 ? '0' : '') + (i + 1);
+		html += '<figure class="tt-stack__card" style="--i:' + i + '">' +
+			'<div class="tt-stack__pic"><img src="' + img.getAttribute('src') + '" alt="' + (img.getAttribute('alt') || '').replace(/"/g, '&quot;') + '" decoding="async">' +
+			'<span class="tt-stack__tag tt-stack__tag--b">Przed</span><span class="tt-stack__tag tt-stack__tag--a">Po</span></div>' +
+			'<figcaption class="tt-stack__cap"><span class="tt-stack__num">' + num + ' <small>/ ' + (n < 10 ? '0' : '') + n + '</small></span>' +
+			'<span class="tt-stack__txt">Bez filtrów · bez retuszu</span></figcaption></figure>';
 	});
-	wrap.innerHTML = '<div class="tt-st__sticky">' +
-		'<div class="tt-st__side"><div class="tt-st__head"><h2 class="wp-block-heading">' + (h2 ? h2.innerHTML : 'Efekty przed i po') + '</h2>' +
-		(intro ? '<p>' + intro.innerHTML + '</p>' : '') + '</div><div class="tt-st__hint">Przewijaj, aby zobaczyć kolejne</div></div>' +
-		'<div class="tt-st__frame" role="region" aria-label="Efekty przed i po – relacje"><div class="tt-st__bars">' + bars + '</div>' +
-		'<div class="tt-st__user">' + (avSrc ? '<img src="' + avSrc + '" alt="">' : '') + '<b>terapeutka.twarzy</b><span class="tt-st__count">1/' + n + '</span></div>' +
-		slides + '<div class="tt-st__cta">Prawdziwe efekty · bez filtrów</div></div></div>';
-	sec.appendChild(wrap);
-	sec.classList.add('tt-st-on');
+	stack.innerHTML = html;
+	var ba = sec.querySelector('.tt-ba');
+	var host = ba ? ba.parentNode : sec;
+	host.parentNode.insertBefore(stack, host.nextSibling);
+	sec.classList.add('tt-stack-on');
 
-	var slideEls = [].slice.call(wrap.querySelectorAll('.tt-st__slide'));
-	var barEls = [].slice.call(wrap.querySelectorAll('.tt-st__bar i'));
-	var count = wrap.querySelector('.tt-st__count');
-	var frame = wrap.querySelector('.tt-st__frame');
-	var current = 0, ticking = false;
-
-	function metrics() {
-		var r = wrap.getBoundingClientRect();
-		var vh = window.innerHeight || document.documentElement.clientHeight;
-		var range = Math.max(1, r.height - vh);
-		return { r: r, vh: vh, range: range, p: Math.min(1, Math.max(0, -r.top / range)) };
-	}
+	var cards = [].slice.call(stack.querySelectorAll('.tt-stack__card'));
+	var imgs = cards.map(function (c) { return c.querySelector('img'); });
+	var ticking = false;
+	function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 	function update() {
 		ticking = false;
-		var m = metrics();
-		var pos = m.p * n;
-		var idx = Math.min(n - 1, Math.floor(pos));
-		var sub = Math.min(1, pos - idx);
-		if (m.p >= 1) { sub = 1; }
-		barEls.forEach(function (b, i) { b.style.transform = 'scaleX(' + (i < idx ? 1 : i === idx ? sub : 0) + ')'; });
-		if (idx !== current) {
-			slideEls[current].classList.remove('is-on');
-			slideEls[idx].classList.add('is-on');
-			current = idx;
-			count.textContent = (idx + 1) + '/' + n;
-		}
+		var vh = window.innerHeight || document.documentElement.clientHeight;
+		var rects = cards.map(function (c) { return c.getBoundingClientRect(); });
+		cards.forEach(function (c, i) {
+			var r = rects[i];
+			/* ile następne karty już przykryły tę kartę (0–1, sumarycznie dla głębi) */
+			var depth = 0;
+			for (var j = i + 1; j < cards.length; j++) {
+				var cover = clamp((r.bottom - rects[j].top) / r.height);
+				if (cover <= 0) { break; }
+				depth += cover;
+			}
+			var s = 1 - Math.min(depth, 4) * 0.045;
+			var b = 1 - Math.min(depth, 3) * 0.12;
+			c.style.setProperty('--s', s.toFixed(4));
+			c.style.setProperty('--b', b.toFixed(3));
+			/* paralaksa zdjęcia wewnątrz karty */
+			var mid = (r.top + r.height / 2 - vh / 2) / vh;
+			imgs[i].style.setProperty('--py', (mid * -24).toFixed(1) + 'px');
+		});
 	}
 	function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
 	window.addEventListener('scroll', onScroll, { passive: true });
 	window.addEventListener('resize', onScroll);
-	/* stuknięcie: prawa strona = następne, lewa = poprzednie (jak na Instagramie) */
-	frame.addEventListener('click', function (e) {
-		var m = metrics();
-		var rect = frame.getBoundingClientRect();
-		var dir = (e.clientX - rect.left) < rect.width * 0.35 ? -1 : 1;
-		var target = Math.min(n, Math.max(0, current + dir));
-		var y = window.scrollY + m.r.top + (target / n) * m.range + (dir > 0 ? 2 : 0);
-		if (target >= n) { y = window.scrollY + m.r.top + m.range + m.vh * 0.6; }
-		window.scrollTo({ top: y, behavior: 'smooth' });
-	});
 	update();
 })();
 </script>
