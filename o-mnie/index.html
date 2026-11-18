@@ -258,6 +258,44 @@ html,body{overflow-x:clip}
 <link rel="icon" href="../wp-content/uploads/2026/11/gosia-koza-300x300.jpg" sizes="192x192" />
 <link rel="apple-touch-icon" href="../wp-content/uploads/2026/11/gosia-koza-300x300.jpg" />
 <meta name="msapplication-TileImage" content="../wp-content/uploads/2026/11/gosia-koza-300x300.jpg" />
+<style id="tt-mobile-menu">
+/* tt-mobile-menu v1 */
+.wp-block-navigation__responsive-container.is-menu-open{background:radial-gradient(120% 60% at 100% 0%,#F1E4DC 0%,rgba(241,228,220,0) 60%),radial-gradient(90% 50% at 0% 100%,#F1E4DC 0%,rgba(241,228,220,0) 65%),#FBF7F4!important;padding:0!important;animation:ttMenuIn .35s ease both}
+@keyframes ttMenuIn{from{opacity:0}to{opacity:1}}
+@keyframes ttItemIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-close,.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog{height:100%;max-width:none}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog{display:flex;flex-direction:column;min-height:100%;padding:22px 24px calc(28px + env(safe-area-inset-bottom));box-sizing:border-box}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close{top:20px!important;right:20px!important;width:44px;height:44px;border-radius:50%;background:#fff!important;box-shadow:0 2px 10px rgba(46,37,34,.08);display:flex;align-items:center;justify-content:center;color:#2E2522}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close svg{width:20px;height:20px}
+.tt-mm-brand{display:flex;align-items:center;gap:12px;min-height:44px;padding-right:56px;text-decoration:none;color:#2E2522;animation:ttItemIn .45s ease both}
+.tt-mm-brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 1px #C9A38F}
+.tt-mm-brand span{font-family:var(--wp--preset--font-family--literata,Literata,serif);font-size:1rem;line-height:1.25}
+.tt-mm-brand small{display:block;font-family:var(--wp--preset--font-family--ysabeau-office,sans-serif);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#8A5A4A}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content{padding-top:28px!important;flex:1;align-items:stretch!important;justify-content:flex-start;gap:0!important}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container{width:100%;align-items:stretch!important;gap:0!important;justify-content:flex-start}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container>.wp-block-navigation-item{width:100%;align-items:center!important;text-align:center;border-bottom:1px solid rgba(201,163,143,.35);padding:14px 0;animation:ttItemIn .5s ease both}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container>.wp-block-navigation-item:nth-child(1){animation-delay:.06s}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container>.wp-block-navigation-item:nth-child(2){animation-delay:.12s}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container>.wp-block-navigation-item:nth-child(3){animation-delay:.18s}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container>.wp-block-navigation-item:nth-child(4){animation-delay:.24s}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container>.wp-block-navigation-item>.wp-block-navigation-item__content{font-family:var(--wp--preset--font-family--literata,Literata,serif);font-size:1.75rem;line-height:1.2;letter-spacing:0;color:#2E2522;padding:0!important}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container>.current-menu-item>.wp-block-navigation-item__content{color:#8A5A4A;font-style:italic}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-submenu{gap:0!important}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container{display:flex!important;flex-direction:row!important;flex-wrap:wrap;justify-content:center!important;align-items:center!important;gap:8px!important;padding:12px 0 2px!important;width:100%;background:none!important;border:0!important}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item{width:auto!important;align-items:center!important}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content{display:inline-block;padding:7px 14px!important;border-radius:999px;background:#fff;border:1px solid rgba(201,163,143,.55);font-size:.95rem!important;letter-spacing:.02em;color:#6B5E59}
+.wp-block-navigation__responsive-container.is-menu-open a:focus{outline:none}
+.wp-block-navigation__responsive-container.is-menu-open a:focus-visible{outline:none;text-decoration:underline;text-decoration-color:#C9A38F;text-underline-offset:6px}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container a:focus-visible{text-decoration:none;box-shadow:0 0 0 2px #C9A38F}
+.tt-mm-foot{margin-top:auto;padding-top:28px;text-align:center;animation:ttItemIn .55s ease .3s both}
+.tt-mm-cta{display:block;padding:16px 20px;border-radius:999px;background:#8A5A4A;color:#fff!important;text-decoration:none;font-family:var(--wp--preset--font-family--ysabeau-office,sans-serif);font-weight:600;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(138,90,74,.28)}
+.tt-mm-phone{display:inline-block;margin-top:14px;color:#2E2522!important;text-decoration:none;font-size:1.05rem}
+.tt-mm-phone b{color:#8A5A4A}
+.tt-mm-addr{margin:6px 0 0;font-size:.85rem;color:#6B5E59}
+.tt-mm-social{display:flex;justify-content:center;gap:18px;margin-top:12px}
+.tt-mm-social a{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#8A5A4A!important;text-decoration:none}
+@media (prefers-reduced-motion:reduce){.wp-block-navigation__responsive-container.is-menu-open,.wp-block-navigation__responsive-container.is-menu-open *{animation:none!important}}
+</style>
 </head>
 
 <body class="wp-singular page-template-default page page-id-16 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -499,6 +537,35 @@ document.querySelectorAll('[data-tt-ba]').forEach(function (box) {
 /*! This file is auto-generated */
 var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
 //# sourceURL=../wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script id="tt-mobile-menu-js">
+(function () {
+	var dlg = document.querySelector('.wp-block-navigation__responsive-dialog');
+	if (!dlg || dlg.querySelector('.tt-mm-brand')) { return; }
+	var title = document.querySelector('.wp-block-site-title a');
+	var av = document.querySelector('.tt-avatar img, img.tt-avatar');
+	var brand = document.createElement('a');
+	brand.className = 'tt-mm-brand';
+	brand.href = title ? title.getAttribute('href') : './';
+	brand.innerHTML = (av ? '<img src="' + av.getAttribute('src') + '" alt="">' : '') +
+		'<span>Małgorzata Koza<small>Terapeutka twarzy</small></span>';
+	var content = dlg.querySelector('.wp-block-navigation__responsive-container-content');
+	dlg.insertBefore(brand, content);
+	var foot = document.createElement('div');
+	foot.className = 'tt-mm-foot';
+	foot.innerHTML = '<a class="tt-mm-cta" href="https://terapeutkatwarzymalgorzatakoza.pl/">Zapisz się na wizytę</a>' +
+		'<a class="tt-mm-phone" href="tel:+48880218113">lub zadzwoń: <b>880 218 113</b></a>' +
+		'<p class="tt-mm-addr">ul. Dąbrowskiego 22 lok. 2 · Częstochowa</p>' +
+		'<div class="tt-mm-social"><a href="https://www.instagram.com/terapeutka.twarzy/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61575325657300" target="_blank" rel="noopener">Facebook</a></div>';
+	dlg.appendChild(foot);
+	/* zamknij menu po kliknięciu kotwicy na tej samej stronie */
+	dlg.addEventListener('click', function (e) {
+		var a = e.target.closest('a[href*="#"]');
+		if (!a) { return; }
+		var btn = dlg.querySelector('.wp-block-navigation__responsive-container-close');
+		if (btn) { setTimeout(function () { btn.click(); }, 10); }
+	});
+})();
 </script>
 </body>
 </html>
