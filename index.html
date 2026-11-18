@@ -300,10 +300,10 @@ html,body{overflow-x:clip}
 </style>
 <style id="tt-ticker-css">
 /* tt-ticker v1 */
-.tt-ticker{position:relative;overflow:hidden;background:#2E2522;color:#FBF7F4;padding:22px 0;margin-block:0!important;max-width:none!important}
+.tt-ticker{position:relative;overflow:hidden;background:#fff;color:#8A5A4A;border-top:1px solid rgba(201,163,143,.35);border-bottom:1px solid rgba(201,163,143,.35);padding:22px 0;margin-block:0!important;max-width:none!important}
 .tt-ticker::before,.tt-ticker::after{content:"";position:absolute;top:0;bottom:0;width:60px;z-index:1;pointer-events:none}
-.tt-ticker::before{left:0;background:linear-gradient(90deg,#2E2522,rgba(46,37,34,0))}
-.tt-ticker::after{right:0;background:linear-gradient(270deg,#2E2522,rgba(46,37,34,0))}
+.tt-ticker::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.tt-ticker::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
 .tt-ticker__track{display:flex;width:max-content;animation:ttTicker 38s linear infinite;will-change:transform}
 .tt-ticker:hover .tt-ticker__track{animation-play-state:paused}
 .tt-ticker__group{display:flex;align-items:center;flex-shrink:0}
