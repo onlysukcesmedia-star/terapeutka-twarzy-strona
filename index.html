@@ -298,6 +298,20 @@ html,body{overflow-x:clip}
 #zabiegi .tt-offer-line{display:block;height:2px;width:min(220px,50%);margin:.9rem auto 1rem;background:linear-gradient(90deg,transparent,#8A5A4A,transparent);transform:scaleX(var(--tt-lp,0));transform-origin:center}
 #zabiegi .wp-block-column .has-x-large-font-size{display:inline-block;transform:rotate(var(--tt-rot,0deg)) scale(var(--tt-ss,1));transform-origin:50% 55%}
 </style>
+<style id="tt-ticker-css">
+/* tt-ticker v1 */
+.tt-ticker{position:relative;overflow:hidden;background:#2E2522;color:#FBF7F4;padding:22px 0;margin-block:0!important;max-width:none!important}
+.tt-ticker::before,.tt-ticker::after{content:"";position:absolute;top:0;bottom:0;width:60px;z-index:1;pointer-events:none}
+.tt-ticker::before{left:0;background:linear-gradient(90deg,#2E2522,rgba(46,37,34,0))}
+.tt-ticker::after{right:0;background:linear-gradient(270deg,#2E2522,rgba(46,37,34,0))}
+.tt-ticker__track{display:flex;width:max-content;animation:ttTicker 38s linear infinite;will-change:transform}
+.tt-ticker:hover .tt-ticker__track{animation-play-state:paused}
+.tt-ticker__group{display:flex;align-items:center;flex-shrink:0}
+.tt-ticker__item{font-family:var(--wp--preset--font-family--literata,Literata,serif);font-size:clamp(1.15rem,2.4vw,1.6rem);font-style:italic;letter-spacing:.01em;white-space:nowrap;padding:0 26px}
+.tt-ticker__sep{color:#C9A38F;font-size:.9rem}
+@keyframes ttTicker{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (max-width:600px){.tt-ticker{padding:16px 0}.tt-ticker__item{padding:0 18px}.tt-ticker__track{animation-duration:28s}}
+</style>
 </head>
 
 <body class="home wp-singular page-template page-template-page-no-title page page-id-11 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -380,25 +394,7 @@ html,body{overflow-x:clip}
 
 
 
-<div class="wp-block-group alignfull has-base-color has-contrast-background-color has-text-color has-background has-global-padding is-layout-constrained wp-container-core-group-is-layout-9a8a0dad wp-block-group-is-layout-constrained" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-794e3cfa wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<p class="has-text-align-center has-small-font-size wp-block-paragraph">📍 ul. Dąbrowskiego 22 lok. 2 (parter)<br>42-218 Częstochowa</p>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<p class="has-text-align-center has-small-font-size wp-block-paragraph">📞 <a href="tel:+48880218113">880 218 113</a><br>Zapisy telefoniczne i SMS</p>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<p class="has-text-align-center has-small-font-size wp-block-paragraph">✉️ <a href="mailto:terapeutka.twarzy@gmail.com">terapeutka.twarzy@gmail.com</a><br>Odpowiadam najszybciej, jak mogę</p>
-</div>
-</div>
-</div>
+<div class="tt-ticker alignfull" role="marquee" aria-label="Naturalne Odmładzanie Twarzy · 100% Naturalne · Bez Inwazyjne · Bez Botoksu · Bez igieł · Odkryj swoje naturalne piękno już teraz !"><div class="tt-ticker__track"><div class="tt-ticker__group"><span class="tt-ticker__item">Naturalne Odmładzanie Twarzy</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">100% Naturalne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Inwazyjne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Botoksu</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez igieł</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Odkryj swoje naturalne piękno już teraz !</span><span class="tt-ticker__sep">✦</span></div><div class="tt-ticker__group" aria-hidden="true"><span class="tt-ticker__item">Naturalne Odmładzanie Twarzy</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">100% Naturalne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Inwazyjne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Botoksu</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez igieł</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Odkryj swoje naturalne piękno już teraz !</span><span class="tt-ticker__sep">✦</span></div><div class="tt-ticker__group" aria-hidden="true"><span class="tt-ticker__item">Naturalne Odmładzanie Twarzy</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">100% Naturalne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Inwazyjne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Botoksu</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez igieł</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Odkryj swoje naturalne piękno już teraz !</span><span class="tt-ticker__sep">✦</span></div><div class="tt-ticker__group" aria-hidden="true"><span class="tt-ticker__item">Naturalne Odmładzanie Twarzy</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">100% Naturalne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Inwazyjne</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez Botoksu</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Bez igieł</span><span class="tt-ticker__sep">✦</span><span class="tt-ticker__item">Odkryj swoje naturalne piękno już teraz !</span><span class="tt-ticker__sep">✦</span></div></div></div>
 
 
 
