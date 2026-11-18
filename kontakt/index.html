@@ -208,6 +208,8 @@ a{text-decoration-thickness:1px!important;text-underline-offset:.1em}:where(.wp-
 <style>
 .tt-js #zabiegi > p,.tt-js #zabiegi > h2,.tt-js #zabiegi .tt-offer-head,.tt-js #zabiegi .wp-block-column{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;will-change:opacity,transform}
 .tt-js #zabiegi .tt-in{opacity:1!important;transform:none!important}
+#zabiegi{overflow:hidden}
+html,body{overflow-x:clip}
 @media (prefers-reduced-motion:reduce){.tt-js #zabiegi > p,.tt-js #zabiegi > h2,.tt-js #zabiegi .tt-offer-head,.tt-js #zabiegi .wp-block-column{opacity:1;transform:none;transition:none}}
 </style>
 		<style>#zabiegi .tt-offer-head{position:relative;isolation:isolate;background:none;padding:1.5rem 1rem;max-width:900px;margin-left:auto!important;margin-right:auto!important;box-shadow:none}#zabiegi .tt-offer-head::before{content:"";position:absolute;z-index:-1;inset:-35% -18%;background:radial-gradient(ellipse at center,rgba(251,247,244,.92) 0%,rgba(251,247,244,.82) 32%,rgba(251,247,244,.45) 55%,rgba(251,247,244,0) 72%);pointer-events:none}#zabiegi .tt-offer-head > *{max-width:none}#zabiegi .tt-offer-head p:first-child{color:var(--wp--preset--color--accent-3);font-weight:800;font-size:.95rem;letter-spacing:.22em}#zabiegi .tt-offer-head h2{color:#1f1816;font-weight:500;font-size:clamp(2.1rem,4vw,3.1rem);margin-top:.4rem}#zabiegi .tt-offer-head p:last-child{color:#1f1816;font-weight:600;font-size:1.2rem;line-height:1.55}</style>
@@ -432,16 +434,27 @@ document.querySelectorAll('[data-tt-reviews]').forEach(function (box) {
 	if (!section) { return; }
 	var items = [].slice.call(section.querySelectorAll(':scope > p, :scope > h2, .tt-offer-head, .wp-block-column'));
 	if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('tt-in'); }); return; }
+	var narrow = window.matchMedia('(max-width: 781px)').matches;
 	var cards = 0;
 	items.forEach(function (el) {
-		if (el.classList.contains('wp-block-column')) { el.style.transitionDelay = (cards++ * 0.15) + 's'; }
+		if (!narrow && el.classList.contains('wp-block-column')) { el.style.transitionDelay = (cards++ * 0.15) + 's'; }
 	});
+	function show(el) { el.classList.add('tt-in'); }
 	var io = new IntersectionObserver(function (entries) {
 		entries.forEach(function (e) {
-			if (e.isIntersecting) { e.target.classList.add('tt-in'); io.unobserve(e.target); }
+			if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
 		});
-	}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+	}, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
 	items.forEach(function (el) { io.observe(el); });
+	function check() {
+		var h = window.innerHeight || document.documentElement.clientHeight;
+		items.forEach(function (el) {
+			if (!el.classList.contains('tt-in') && el.getBoundingClientRect().top < h * 0.92) { show(el); }
+		});
+	}
+	window.addEventListener('scroll', check, { passive: true });
+	window.addEventListener('load', check);
+	setTimeout(check, 600);
 })();
 </script>
 		<script>
