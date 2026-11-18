@@ -386,6 +386,12 @@ main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{marg
 @keyframes ttLaserPulse{0%,100%{opacity:.85;filter:brightness(1)}50%{opacity:1;filter:brightness(1.35)}}
 @keyframes ttLaserScan{0%{top:-22%}100%{top:100%}}
 @keyframes ttKnobGlow{0%,100%{box-shadow:0 0 0 3px rgba(255,255,255,.35),0 0 14px 3px rgba(255,210,190,.8),0 0 30px 8px rgba(201,120,90,.4)}50%{box-shadow:0 0 0 5px rgba(255,255,255,.45),0 0 22px 6px rgba(255,220,200,1),0 0 46px 14px rgba(201,120,90,.6)}}
+.tt-meta__h{font-size:clamp(1.35rem,2.3vw,1.85rem)!important;line-height:1.35!important}
+.tt-meta__line{display:block}
+.tt-meta__h strong{font-weight:700;color:#8A5A4A}
+.tt-meta__or{display:block;margin:.7em 0;font-style:italic;font-size:.8em;color:#8A5A4A;letter-spacing:.04em}
+.tt-meta__or::before,.tt-meta__or::after{content:"";display:inline-block;width:38px;height:1px;background:#C9A38F;vertical-align:middle;margin:0 12px}
+@media (min-width:900px){.tt-meta__or::before{display:none}.tt-meta__or::after{width:60px}}
 </style>
 </head>
 
@@ -668,14 +674,12 @@ Od ponad dwóch lat jestem jej klientką, a moja twarz jest zadbana i zrelaksowa
 <div id="metamorfoza" class="tt-meta alignfull">
 <div class="tt-meta__in">
 <div class="tt-meta__txt">
-<p class="tt-meta__eyebrow">Metamorfoza</p>
-<h2 class="tt-meta__h">Zobacz różnicę na własne oczy</h2>
-<p class="tt-meta__lead">Przesuń świecącą linię w lewo i w prawo – po lewej stan przed terapią, po prawej efekt po serii zabiegów. Bez filtrów, bez retuszu.</p>
+<p class="tt-meta__eyebrow">Zobacz na własne oczy</p>
+<h2 class="tt-meta__h"><span class="tt-meta__line">Jak może wyglądać Twoja twarz za 10 lat <strong>BEZ</strong> stosowania manualnych terapii twarzy</span><span class="tt-meta__or">oraz</span><span class="tt-meta__line">Jak będzie wyglądać dzięki regularnym zabiegom manualnych terapii twarzy.</span></h2>
 </div>
 <div class="tt-cmp" style="--x:50%">
 <img class="tt-cmp__img tt-cmp__img--after" src="./wp-content/uploads/2026/11/efekty/metamorfoza-po.jpg" alt="Twarz klientki po serii manualnych terapii twarzy" width="476" height="805" decoding="async">
 <div class="tt-cmp__before"><img class="tt-cmp__img" src="./wp-content/uploads/2026/11/efekty/metamorfoza-przed.jpg" alt="Twarz klientki przed manualną terapią twarzy" width="476" height="805" decoding="async"></div>
-<span class="tt-cmp__tag tt-cmp__tag--b">Przed</span><span class="tt-cmp__tag tt-cmp__tag--a">Po</span>
 <div class="tt-cmp__laser" aria-hidden="true"><span class="tt-cmp__scan"></span><span class="tt-cmp__knob"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
 <input class="tt-cmp__range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Porównanie przed i po – przesuń, aby odsłonić zdjęcie">
 </div>
