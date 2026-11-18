@@ -911,15 +911,34 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 	var cards = [].slice.call(stack.querySelectorAll('.tt-stack__card'));
 	var imgs = cards.map(function (c) { return c.querySelector('img'); });
 	var ticking = false;
+	var fullH = 'calc(' + (n - 1) + ' * 70vh + 100vh)';
+	var done = false, collapsed = false, lastY = window.scrollY;
 	function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 	function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 	function update() {
 		ticking = false;
 		var vh = window.innerHeight || document.documentElement.clientHeight;
+		var y0 = window.scrollY, goingUp = y0 < lastY;
+		lastY = y0;
 		var r = stack.getBoundingClientRect();
+		/* sekcja całkiem poniżej ekranu – przywróć efekt na kolejne przewijanie w dół */
+		if (r.top > vh && (done || collapsed)) {
+			done = false;
+			if (collapsed) { collapsed = false; stack.style.height = fullH; r = stack.getBoundingClientRect(); }
+		}
 		var range = Math.max(1, r.height - vh);
 		var p = clamp(-r.top / range);
-		var pos = p * (n - 1);
+		if (!done && !collapsed && p >= 1) { done = true; }
+		/* po ułożeniu stosu przewijanie w górę nie cofa animacji – sekcja zwija się do jednego ekranu */
+		if (done && !collapsed && goingUp) {
+			var removed = r.height - vh;
+			stack.style.height = '100vh';
+			collapsed = true;
+			window.scrollTo({ top: y0 - removed, behavior: 'instant' });
+			lastY = window.scrollY;
+			r = stack.getBoundingClientRect();
+		}
+		var pos = done ? (n - 1) : p * (n - 1);
 		cards.forEach(function (c, i) {
 			/* wjazd karty od dołu (0 = poza ekranem, 1 = na miejscu) */
 			var enter = i === 0 ? 1 : ease(clamp(pos - (i - 1)));
