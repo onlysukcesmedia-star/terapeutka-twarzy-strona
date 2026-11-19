@@ -434,6 +434,11 @@ main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{marg
 html.ttb-lock,html.ttb-lock body{overflow:hidden}
 .ttb__info li{display:flex;gap:8px;align-items:flex-start}.ttb__info svg{flex:0 0 auto;margin-top:3px;color:#8A5A4A}
 .ttb-ico:focus-visible,.ttb__btn:focus-visible,.ttb-day:focus-visible,.ttb-slot:focus-visible{outline:2px solid #C9A38F;outline-offset:2px}.ttb-ico:focus:not(:focus-visible){outline:none}
+.ttb__paylater{display:flex;gap:12px;align-items:center;margin:16px 0 4px;padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,#F1E4DC,#FBF7F4);border:1px solid #E8D9D0;color:#8A5A4A}
+.ttb__paylater svg{flex:0 0 auto}
+.ttb__paylater b{display:block;color:#2E2522;font-size:1rem;font-weight:700}
+.ttb__paylater span{display:block;font-size:.85rem;color:#6B5E59}
+.ttb-pay{margin:14px 0 0;padding:10px 14px;border-radius:12px;background:#F1E4DC;color:#8A5A4A;font-size:.88rem;font-weight:700}
 .tt-book-wrap{margin-block:0!important}
 </style>
 </head>
@@ -499,6 +504,7 @@ html.ttb-lock,html.ttb-lock body{overflow:hidden}
 <p class="ttb__eyebrow">Rezerwacja online</p>
 <h1 class="ttb__title">Umów wizytę</h1>
 <p class="ttb__meta"><span class="ttb__chip">&#9733; 5,0 · 100% poleca na Facebooku</span></p>
+<div class="ttb__paylater"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M7 15h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><div><b>Zarezerwuj teraz, zapłać później</b><span>Płatność na miejscu w gabinecie, w dniu wizyty.</span></div></div>
 <ul class="ttb__info">
 <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg> ul. Dąbrowskiego 22 lok. 2 (parter), Częstochowa</li>
 <li><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> poniedziałek – piątek · 9:00 – 20:00</li>
@@ -531,6 +537,7 @@ html.ttb-lock,html.ttb-lock body{overflow:hidden}
 </section>
 <section class="ttb-step ttb-step--2" hidden>
 <div class="ttb-sum ttb-sum--full"><div><b class="ttb-sum__name"></b><span class="ttb-sum__when"></span></div><span class="ttb-sum__price"></span></div>
+<p class="ttb-pay">✦ Zarezerwuj teraz, zapłać później – płatność na miejscu w gabinecie.</p>
 <form class="ttb-form" novalidate>
 <label>Imię i nazwisko<input name="name" autocomplete="name" required></label>
 <label>Telefon<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
