@@ -358,6 +358,20 @@ main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{marg
 #zabiegi > .tt-px{max-width:none!important;margin:0!important}
 .wp-block-navigation__responsive-container:not(.is-menu-open) .tt-mm-brand,.wp-block-navigation__responsive-container:not(.is-menu-open) .tt-mm-foot{display:none!important}
 </style>
+<style id="tt-card-buy">
+/* tt-card-buy v1: cena, czas i CTA w kafelkach zabiegów */
+#zabiegi .wp-block-column{display:flex;flex-direction:column}
+#zabiegi .wp-block-column > .has-x-large-font-size{align-self:flex-start}
+#zabiegi .tt-card-buy{margin-top:auto!important;padding-top:14px;border-top:1px solid rgba(201,163,143,.35)}
+#zabiegi .tt-card-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 12px!important}
+#zabiegi .tt-card-dur{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;color:#6B5E59}
+#zabiegi .tt-card-dur svg{color:#8A5A4A}
+#zabiegi .tt-card-price{font-family:var(--wp--preset--font-family--literata,Literata,serif);font-size:1.45rem;color:#2E2522}
+#zabiegi .tt-card-btn{display:block;text-align:center;padding:13px 18px;border-radius:999px;background:#8A5A4A;color:#fff!important;text-decoration:none!important;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,transform .1s}
+@media (hover:hover){#zabiegi .tt-card-btn:hover{background:#2E2522}}
+#zabiegi .tt-card-btn:active{transform:scale(.98)}
+#zabiegi .wp-block-column > p:last-child{margin-top:12px!important;text-align:center}
+</style>
 <style id="tt-compare">
 /* tt-compare v1: suwak przed/po ze świecącą linią skanera */
 .tt-meta{background:#FBF7F4;padding:clamp(56px,8vw,96px) 20px!important;margin-block:0!important;max-width:none!important}
@@ -504,6 +518,7 @@ main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{marg
 
 
 
+<div class="tt-card-buy"><p class="tt-card-meta"><span class="tt-card-dur"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>90 min</span><span class="tt-card-price">240 zł</span></p><a class="tt-card-btn" href="./rezerwacja/?zabieg=manualna-terapia-twarzy">Umów wizytę</a></div>
 <p class="wp-block-paragraph"><a href="./facelifting-therapy/">Dowiedz się więcej →</a></p>
 </div>
 
@@ -522,6 +537,7 @@ main.wp-block-group > .wp-block-post-content:last-child,main.wp-block-group{marg
 
 
 
+<div class="tt-card-buy"><p class="tt-card-meta"><span class="tt-card-dur"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>120 min</span><span class="tt-card-price">280 zł</span></p><a class="tt-card-btn" href="./rezerwacja/?zabieg=masaz-transbukalny">Umów wizytę</a></div>
 <p class="wp-block-paragraph"><a href="./masaz-transbukalny/">Dowiedz się więcej →</a></p>
 </div>
 </div>

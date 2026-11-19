@@ -1060,6 +1060,8 @@ window.TT_BOOKING_API = "https://script.google.com/macros/s/AKfycbyTOZFf5RgAKN2c
 			fail((r && r.error) || 'Nie udało się zarezerwować. Spróbuj ponownie lub zadzwoń: 880 218 113.');
 		}).catch(function () { fail('Brak połączenia. Spróbuj ponownie lub zadzwoń: 880 218 113.'); });
 	}
+	var q = (location.search.match(/[?&]zabieg=([^&#]+)/) || [])[1];
+	if (q) { var qb = root.querySelector('.ttb__btn[data-svc="' + q.replace(/[^a-z-]/g, '') + '"]'); if (qb) { setTimeout(function () { open(qb); }, 250); } }
 })();
 </script>
 </body>
