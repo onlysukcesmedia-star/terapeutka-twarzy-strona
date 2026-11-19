@@ -686,9 +686,10 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 		'<span>Małgorzata Koza<small>Terapeutka twarzy</small></span>';
 	var content = dlg.querySelector('.wp-block-navigation__responsive-container-content');
 	dlg.insertBefore(brand, content);
+	var bookUrl = new URL('rezerwacja/', brand.href).href;
 	var foot = document.createElement('div');
 	foot.className = 'tt-mm-foot';
-	foot.innerHTML = '<a class="tt-mm-cta" href="https://terapeutkatwarzymalgorzatakoza.pl/">Zapisz się na wizytę</a>' +
+	foot.innerHTML = '<a class="tt-mm-cta" href="' + bookUrl + '">Zapisz się na wizytę</a>' +
 		'<a class="tt-mm-phone" href="tel:+48880218113">lub zadzwoń: <b>880 218 113</b></a>' +
 		'<p class="tt-mm-addr">ul. Dąbrowskiego 22 lok. 2 · Częstochowa</p>' +
 		'<div class="tt-mm-social"><a href="https://www.instagram.com/terapeutka.twarzy/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61575325657300" target="_blank" rel="noopener">Facebook</a></div>';
@@ -853,7 +854,7 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 })();
 </script>
 		<script id="tt-booking-js">
-window.TT_BOOKING_API = "";
+window.TT_BOOKING_API = "https://script.google.com/macros/s/AKfycbyTOZFf5RgAKN2cYpR0ikbVEuD_PGZRrsAoH3g7bvCyNRMske41sJJgKmUy2OWhTekZkQ/exec";
 (function () {
 	var root = document.getElementById('rezerwacja');
 	if (!root) { return; }
